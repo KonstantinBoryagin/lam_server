@@ -1,0 +1,12 @@
+{
+  "featurename" : "feature name value",
+  "subsystemname" : "subsystem name value",
+  "description" : "test feature request",
+  "updatetime" : "15.02.2022 10:25:32.555",
+  "version" : "5.0.2 RELEASE",
+  "featurestatus" : "true",
+  "offset" : "offset value",
+  "limit" : "limit value",
+  "sortby" : "version=desc",
+  "pageoffset": "24"
+}

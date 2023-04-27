@@ -1,0 +1,11 @@
+{
+  "position" : "next",
+  "parameter" : "parameter value",
+  "parametername" : "parameter name",
+  "subsystemname" : "sub system name",
+  "fullpath" : "full path value",
+  "username" : "admin",
+  "parametertype" : "ARRAY",
+  "sortby" : "one=dist",
+  "pageoffset": "27"
+}

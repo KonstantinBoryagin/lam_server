@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="fill users_roles table" author="konstantin_boryagin">
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="1"/>
+            <column name="role_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="1"/>
+            <column name="role_id" valueNumeric="2"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="1"/>
+            <column name="role_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="2"/>
+            <column name="role_id" valueNumeric="2"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="2"/>
+            <column name="role_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="3"/>
+            <column name="role_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="4"/>
+            <column name="role_id" valueNumeric="2"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="6"/>
+            <column name="role_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" valueNumeric="9"/>
+            <column name="role_id" valueNumeric="2"/>
+        </insert>
+        <rollback>
+            <delete tableName="users_roles"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

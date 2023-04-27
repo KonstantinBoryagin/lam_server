@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="fill audit and journal tags table" author="zukhra_shagiakhmetova">
+        <insert tableName="tag">
+            <column name="tag" value="uid0"/>
+            <column name="value" value="value0"/>
+            <column name="record_id" valueNumeric="11"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid1"/>
+            <column name="value" value="value1"/>
+            <column name="record_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid2"/>
+            <column name="value" value="value2"/>
+            <column name="record_id" valueNumeric="15"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid3"/>
+            <column name="value" value="value3"/>
+            <column name="record_id" valueNumeric="18"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid4"/>
+            <column name="value" value="value4"/>
+            <column name="record_id" valueNumeric="16"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid5"/>
+            <column name="value" value="value5"/>
+            <column name="record_id" valueNumeric="2"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid6"/>
+            <column name="value" value="value6"/>
+            <column name="record_id" valueNumeric="13"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid7"/>
+            <column name="value" value="value7"/>
+            <column name="record_id" valueNumeric="8"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid8"/>
+            <column name="value" value="value8"/>
+            <column name="record_id" valueNumeric="18"/>
+        </insert>
+        <insert tableName="tag">
+            <column name="tag" value="uid9"/>
+            <column name="value" value="value9"/>
+            <column name="record_id" valueNumeric="1"/>
+        </insert>
+        <rollback>
+            <delete tableName="tag"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

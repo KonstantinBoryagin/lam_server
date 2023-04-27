@@ -1,0 +1,9 @@
+{
+  "version": "last version",
+  "servicename": "service name",
+  "serviceaddress": "service address",
+  "status": "error",
+  "offset": "offset",
+  "limit": "1",
+  "sortby": "version=desc"
+}

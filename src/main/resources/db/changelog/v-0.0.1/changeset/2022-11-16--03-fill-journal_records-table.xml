@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="fill records journal table" author="zukhra_shagiakhmetova">
+        <insert tableName="record">
+            <column name="header" value="header0_journal"/>
+            <column name="message" value="Some message"/>
+            <column name="request" value="request0_journal"/>
+            <column name="response" value="response0_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="1"/>
+            <column name="system_info_id" valueNumeric="1"/>
+            <column name="host_id" valueNumeric="1"/>
+            <column name="user_info_id" valueNumeric="1"/>
+            <column name="namespace_id" valueNumeric="1"/>
+            <column name="method_id" valueNumeric="1"/>
+            <column name="datasource_id" valueNumeric="1"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header1_journal"/>
+            <column name="message" value="Some message"/>
+            <column name="request" value="request1_journal"/>
+            <column name="response" value="response1_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="2"/>
+            <column name="system_info_id" valueNumeric="2"/>
+            <column name="host_id" valueNumeric="2"/>
+            <column name="user_info_id" valueNumeric="2"/>
+            <column name="namespace_id" valueNumeric="2"/>
+            <column name="method_id" valueNumeric="2"/>
+            <column name="datasource_id" valueNumeric="2"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header2_journal"/>
+            <column name="message" value="Some message"/>
+            <column name="request" value="request2_journal"/>
+            <column name="response" value="response2_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="3"/>
+            <column name="system_info_id" valueNumeric="3"/>
+            <column name="host_id" valueNumeric="3"/>
+            <column name="user_info_id" valueNumeric="3"/>
+            <column name="namespace_id" valueNumeric="3"/>
+            <column name="method_id" valueNumeric="3"/>
+            <column name="datasource_id" valueNumeric="3"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header3_journal"/>
+            <column name="message" value="Some message"/>
+            <column name="request" value="request3_journal"/>
+            <column name="response" value="response3_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="4"/>
+            <column name="system_info_id" valueNumeric="4"/>
+            <column name="host_id" valueNumeric="4"/>
+            <column name="user_info_id" valueNumeric="4"/>
+            <column name="namespace_id" valueNumeric="4"/>
+            <column name="method_id" valueNumeric="4"/>
+            <column name="datasource_id" valueNumeric="4"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header4_journal"/>
+            <column name="message" value="Some message"/>
+            <column name="request" value="request4_journal"/>
+            <column name="response" value="response4_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="5"/>
+            <column name="system_info_id" valueNumeric="5"/>
+            <column name="host_id" valueNumeric="5"/>
+            <column name="user_info_id" valueNumeric="5"/>
+            <column name="namespace_id" valueNumeric="5"/>
+            <column name="method_id" valueNumeric="5"/>
+            <column name="datasource_id" valueNumeric="5"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header5_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="6"/>
+            <column name="system_info_id" valueNumeric="6"/>
+            <column name="host_id" valueNumeric="6"/>
+            <column name="user_info_id" valueNumeric="6"/>
+            <column name="namespace_id" valueNumeric="6"/>
+            <column name="method_id" valueNumeric="5"/>
+            <column name="datasource_id" valueNumeric="1"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header6_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="3"/>
+            <column name="system_info_id" valueNumeric="7"/>
+            <column name="host_id" valueNumeric="7"/>
+            <column name="user_info_id" valueNumeric="7"/>
+            <column name="namespace_id" valueNumeric="7"/>
+            <column name="method_id" valueNumeric="3"/>
+            <column name="datasource_id" valueNumeric="2"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header7_journal"/>
+            <column name="message" value="Some message"/>
+            <column name="request" value="request7_journal"/>
+            <column name="response" value="response7_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="3"/>
+            <column name="system_info_id" valueNumeric="8"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header8_journal"/>
+            <column name="message" value="Some message"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="4"/>
+            <column name="system_info_id" valueNumeric="9"/>
+            <column name="host_id" valueNumeric="9"/>
+            <column name="namespace_id" valueNumeric="9"/>
+            <column name="datasource_id" valueNumeric="3"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="record">
+            <column name="header" value="header9_journal"/>
+            <column name="event_time" valueDate="2022-04-12 12:00:23"/>
+            <column name="date_time" valueDate="2022-04-12 14:00:23"/>
+            <column name="message_type_id" valueNumeric="5"/>
+            <column name="system_info_id" valueNumeric="10"/>
+            <column name="datasource_id" valueNumeric="4"/>
+            <column name="record_type_id" valueNumeric="1"/>
+        </insert>
+        <rollback>
+            <delete tableName="record"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

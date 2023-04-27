@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  lam:
+    image: nexus-docker1.sezinno.ru/ru.innopolis/lam/lam_server/${BRANCH_N}:${VERSION_P}.${VERSION_B}
+    build:
+      context: .
+    container_name: lam
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://10.242.4.182:5432/lam.server
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD='postgrepass'
+    pull_policy: always
+    restart: always
+    ports:
+      - "8000:8080"

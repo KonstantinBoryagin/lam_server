@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="fill datasource table" author="zukhra_shagiakhmetova">
+        <insert tableName="datasource">
+            <column name="datasource" value="File"/>
+        </insert>
+        <insert tableName="datasource">
+            <column name="datasource" value="Spreadsheet"/>
+        </insert>
+        <insert tableName="datasource">
+            <column name="datasource" value="Cloud"/>
+        </insert>
+        <insert tableName="datasource">
+            <column name="datasource" value="Database"/>
+        </insert>
+        <insert tableName="datasource">
+            <column name="datasource" value="StreamingService"/>
+        </insert>
+        <rollback>
+            <delete tableName="datasource"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="fill hosts table" author="zukhra_shagiakhmetova">
+        <insert tableName="host">
+            <column name="host" value="0.0.0.0"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="15.10.0.1"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="30.20.0.2"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="45.30.0.3"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="60.40.0.4"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="75.50.0.5"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="90.60.0.6"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="105.70.0.7"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="120.80.0.8"/>
+        </insert>
+        <insert tableName="host">
+            <column name="host" value="135.90.0.9"/>
+        </insert>
+        <rollback>
+            <delete tableName="host"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="fill methods table" author="zukhra_shagiakhmetova">
+        <insert tableName="method">
+            <column name="method" value="Get method"/>
+        </insert>
+        <insert tableName="method">
+            <column name="method" value="Post method"/>
+        </insert>
+        <insert tableName="method">
+            <column name="method" value="Update method"/>
+        </insert>
+        <insert tableName="method">
+            <column name="method" value="Delete method"/>
+        </insert>
+        <insert tableName="method">
+            <column name="method" value="Get by id method"/>
+        </insert>
+        <rollback>
+            <delete tableName="method"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="fill namespaces table" author="zukhra_shagiakhmetova">
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example1"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example2"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example2"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example3"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example4"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example5"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example6"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example7"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example8"/>
+        </insert>
+        <insert tableName="namespace">
+            <column name="namespace" value="com.lam.server.example9"/>
+        </insert>
+        <rollback>
+            <delete tableName="namespace"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="fill system_info table" author="zukhra_shagiakhmetova">
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="SYS"/>
+            <column name="version" valueNumeric="10"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="STC"/>
+            <column name="version" valueNumeric="23"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="ASCH"/>
+            <column name="version" valueNumeric="15"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="MSTR"/>
+            <column name="version" valueNumeric="1"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="OMVS"/>
+            <column name="version" valueNumeric="18"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="TSO"/>
+            <column name="version" valueNumeric="5"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="STT"/>
+            <column name="version" valueNumeric="6"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="OPT"/>
+            <column name="version" valueNumeric="11"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="CDT"/>
+            <column name="version" valueNumeric="1"/>
+        </insert>
+        <insert tableName="system_info">
+            <column name="subsystem_name" value="PYRT"/>
+            <column name="version" valueNumeric="2"/>
+        </insert>
+        <rollback>
+            <delete tableName="system_info"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="fill user_info table" author="zukhra_shagiakhmetova">
+        <insert tableName="user_info">
+            <column name="username" value="Andy_user"/>
+            <column name="user_id" value="Andy_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Ben_user"/>
+            <column name="user_id" value="Ben_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Karl_user"/>
+            <column name="user_id" value="Karl_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Melisa_user"/>
+            <column name="user_id" value="Melisa_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Jenny_user"/>
+            <column name="user_id" value="Jenny_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Sam_user"/>
+            <column name="user_id" value="Sam_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Osk_user"/>
+            <column name="user_id" value="Osk_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Kenny_user"/>
+            <column name="user_id" value="Kenny_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Dylan_user"/>
+            <column name="user_id" value="Dylan_id"/>
+        </insert>
+        <insert tableName="user_info">
+            <column name="username" value="Liam_user"/>
+            <column name="user_id" value="Liam_id"/>
+        </insert>
+        <rollback>
+            <delete tableName="user_info"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

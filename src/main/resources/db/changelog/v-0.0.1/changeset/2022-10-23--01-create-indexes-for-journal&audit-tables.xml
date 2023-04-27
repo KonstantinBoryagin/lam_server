@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="create extension" author="konstantin_boryagin" dbms="postgresql">
+        <sql>CREATE EXTENSION IF NOT EXISTS pg_trgm</sql>
+        <rollback>
+            <sql>DROP EXTENSION IF EXISTS pg_trgm</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-datasource-table" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX datasource_idx
+                ON datasource
+                USING gin (datasource gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX datasource_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-host-table" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX host_idx
+            ON host
+            USING gin (host gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX host_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-method-table" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX method_idx
+                ON method
+                USING gin (method gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX method_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-namespace-table" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX namespace_idx
+                ON namespace
+                USING gin (namespace gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX namespace_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-system_info-table" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX system_info_idx
+                ON system_info
+                USING gin (subsystem_name gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX system_info_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-tag-table-tag-column" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX tag_tag_idx
+                ON tag
+                USING gin (tag gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX tag_tag_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-tag-table-value-column" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX tag_value_idx
+                ON tag
+                USING gin (value gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX tag_value_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-user_info-table" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX user_info_idx
+                ON user_info
+                USING gin (username gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX user_info_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-record-table-header-column" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX record_header_idx
+                ON record
+                USING gin (header gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX record_header_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-record-table-message-column" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX record_message_idx
+                ON record
+                USING gin (message gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX record_message_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-record-table-request-column" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX record_request_idx
+                ON record
+                USING gin (request gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX record_request_idx</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-index-to-record-table-response-column" author="konstantin_boryagin">
+        <sql dbms="postgresql">
+            CREATE INDEX record_response_idx
+                ON record
+                USING gin (response gin_trgm_ops)
+        </sql>
+        <rollback>
+            <sql dbms="postgresql">DROP INDEX record_response_idx</sql>
+        </rollback>
+    </changeSet>
+
+
+
+</databaseChangeLog>

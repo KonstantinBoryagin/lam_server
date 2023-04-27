@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: v-0.0.1
+      author: konstantin_boryagin
+      changes:
+        - tagDatabase:
+            tag: v-0.0.1
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: v-0.0.1/changelog-v.0.0.1-cumulative.yaml

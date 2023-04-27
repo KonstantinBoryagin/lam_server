@@ -1,0 +1,46 @@
+pipeline {
+  agent none
+  environment {
+    IMAGE_BASE = 'ru.innopolis/lam/lam_server.'
+    BUILD_NUM = "v$BUILD_NUMBER"
+    IMAGE_NAME = "${env.IMAGE_BASE}:${env.BUILD_NUM}"
+    IMAGE_NAME_LATEST = "${env.IMAGE_BASE}:latest"
+    DOCKERFILE_TEST = "Dockerfile_test"
+    DOCKERFILE_BUILD = "Dockerfile_build"
+    GIT_BRANCH = "v$GIT_BRANCH"
+    GIT_BRANCH_LOCAL = "v$GIT_BRANCH_LOCAL"
+  }
+  stages {
+    stage('Compile') {
+      agent {label "jenkins"} 
+      steps {
+        script {
+          checkout scm
+          echo 'Notify GitLab'
+          updateGitlabCommitStatus name: 'Test', state: 'pending'
+          updateGitlabCommitStatus name: 'Test', state: 'success'
+          MAIN_T = "${env.IMAGE_BASE}${env.BUILD_NUM}"
+          def dockerImage = docker.build("${MAIN_T}", "-f ${env.DOCKERFILE_BUILD} .")
+        }
+        sh 'docker image prune -a -f --filter "until=2h"'  
+        sh 'docker container prune -f --filter "until=2h"'
+      }
+    }
+    stage('Test') {
+      agent {label "jenkins"} 
+      steps {
+        script {
+          checkout scm
+          echo 'Notify GitLab'
+          updateGitlabCommitStatus name: 'Test', state: 'pending'
+          updateGitlabCommitStatus name: 'Test', state: 'success'
+          MAIN_T = "${env.IMAGE_BASE}${env.BUILD_NUM}"
+          def dockerImage = docker.build("${MAIN_T}", "-f ${env.DOCKERFILE_TEST} .")
+        }
+        sh 'docker image prune -a -f --filter "until=2h"'  
+        sh 'docker container prune -f --filter "until=2h"'
+      }
+    }
+  }
+}
+

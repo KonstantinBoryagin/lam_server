@@ -1,0 +1,21 @@
+{
+  "position" : "next",
+  "datefrom" : "21210",
+  "timefrom" : "2121.21",
+  "dateto" : "5454",
+  "timeto" : "6565",
+  "subsystemname": "sub system name",
+  "host": "host value",
+  "messagetype": "DEBUG",
+  "username": "username",
+  "userid": "5056445",
+  "tags": "1=one",
+  "eventtime": "15.02.2022 10:25:32",
+  "message": "message for server",
+  "datasource": "datasource value",
+  "method": "method",
+  "namespace": "namespace",
+  "version": "2",
+  "sortby": "first type=descending",
+  "pageoffset": "25"
+}

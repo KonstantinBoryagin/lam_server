@@ -1,0 +1,67 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: users_tables
+      author: konstantin_boryagin
+      changes:
+        - tagDatabase:
+            tag: users
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-06-20--01-create-test-tables.xml
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-06-20--02-fill-users-table.xml
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-06-20--03-fill-roles-table.xml
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-06-20--04-fill-users_roles-table.xml
+
+  - changeSet:
+      id: journal_and_audit_tables
+      author: konstantin_boryagin
+      changes:
+        - tagDatabase:
+            tag: journal_and_audit
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-10-20--01-create-journal&audit-tables.xml
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-10-21--01-fill-message_type_and_record_type-tables.xml
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-10-23--01-create-indexes-for-journal&audit-tables.xml
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-11-16--01-fill-additional-table.xml
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-11-16--02-fill-audit_records-table.xml
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-11-16--03-fill-journal_records-table.xml
+
+  - include:
+      context: dev, test
+      relativeToChangelogFile: true
+      file: changeset/2022-11-16--04-fill-tags-table.xml

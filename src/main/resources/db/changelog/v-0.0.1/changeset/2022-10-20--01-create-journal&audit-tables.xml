@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="create message_type table" author="konstantin_boryagin">
+        <createTable tableName="message_type" remarks="Тип сообщения">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="type" type="varchar(20)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="section" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create record_type table" author="konstantin_boryagin">
+        <createTable tableName="record_type" remarks="Тип записи">
+            <column name="id" type="smallint">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="description" type="varchar(20)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create datasource table" author="konstantin_boryagin">
+        <createTable tableName="datasource" remarks="Источник">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="datasource" type="clob">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create host table" author="konstantin_boryagin">
+        <createTable tableName="host" remarks="Хост">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="host" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create method table" author="konstantin_boryagin">
+        <createTable tableName="method" remarks="Метод">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="method" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create namespace table" author="konstantin_boryagin">
+        <createTable tableName="namespace" remarks="Пространство имен">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="namespace" type="varchar(4096)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create system_info table" author="konstantin_boryagin">
+        <createTable tableName="system_info" remarks="Информация о системе">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="subsystem_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create tag table" author="konstantin_boryagin">
+        <createTable tableName="tag" remarks="Тэг">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="tag" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="record_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create user_info table" author="konstantin_boryagin">
+        <createTable tableName="user_info" remarks="Пользователь">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="username" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create record table" author="konstantin_boryagin">
+        <createTable tableName="record" remarks="Запись">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="header" type="varchar(255)"/>
+            <column name="message" type="clob"/>
+            <column name="request" type="clob"/>
+            <column name="response" type="clob"/>
+            <column name="event_time" type="timestamp with time zone">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_time" type="timestamp with time zone">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message_type_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="system_info_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="host_id" type="bigint"/>
+            <column name="user_info_id" type="bigint"/>
+            <column name="namespace_id" type="bigint"/>
+            <column name="method_id" type="bigint"/>
+            <column name="datasource_id" type="bigint"/>
+            <column name="record_type_id" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add foreign key for tag" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="tag" baseColumnNames="record_id"
+                                 constraintName="tag_record_id_fkey"
+                                 referencedTableName="record"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="add foreign key for datasource" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="record" baseColumnNames="datasource_id"
+                                 constraintName="record_datasource_id_fkey"
+                                 referencedTableName="datasource"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="add foreign key for host" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="record" baseColumnNames="host_id"
+                                 constraintName="record_host_id_fkey"
+                                 referencedTableName="host"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="add foreign key for message_type" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="record" baseColumnNames="message_type_id"
+                                 constraintName="record_message_type_id_fkey"
+                                 referencedTableName="message_type"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="add foreign key for record_type" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="record" baseColumnNames="record_type_id"
+                                 constraintName="record_record_type_id_fkey"
+                                 referencedTableName="record_type"
+                                 referencedColumnNames="id"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="add foreign key for method" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="record" baseColumnNames="method_id"
+                                 constraintName="record_method_id_fkey"
+                                 referencedTableName="method"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="add foreign key for namespace" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="record" baseColumnNames="namespace_id"
+                                 constraintName="record_namespace_id_fkey"
+                                 referencedTableName="namespace"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="add foreign key for system_info" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="record" baseColumnNames="system_info_id"
+                                 constraintName="record_system_info_id_fkey"
+                                 referencedTableName="system_info"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="add foreign key for user" author="konstantin_boryagin">
+        <addForeignKeyConstraint baseTableName="record" baseColumnNames="user_info_id"
+                                 constraintName="record_user_info_id_fkey"
+                                 referencedTableName="user_info"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

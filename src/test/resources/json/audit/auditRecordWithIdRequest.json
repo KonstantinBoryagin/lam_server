@@ -1,0 +1,21 @@
+{
+  "position" : "previous",
+  "datefrom" : "10.10.2010",
+  "timefrom" : "21:21",
+  "dateto" : "10.10.2011",
+  "timeto" : "22:22",
+  "subsystemname": "sub system name",
+  "host": "host source",
+  "messagetype": "update",
+  "username": "admin",
+  "userid": "1000256445",
+  "tags": "1.1=one",
+  "eventtime": "15.02.2022 10:25:32",
+  "message": "message for server",
+  "datasource": "datasource value",
+  "method": "delete",
+  "namespace": "namespace",
+  "version": "2.0.0",
+  "sortby": "first type=descending",
+  "pageoffset": "23"
+}
